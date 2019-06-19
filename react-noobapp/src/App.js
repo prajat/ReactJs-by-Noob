@@ -1,18 +1,30 @@
-import React from 'react';
-import {Component} from 'react';
+import React, {Component} from 'react';
 import './App.scss';
 import Person from './Person/Person';
 
 class App extends Component{
+  state={
+    persons:[
+      {name:'dhruv',age:'22'},
+      {name:'shankar',age:'21'},
+      {name:'jaden',age:'20'}
+    ]
+  }
 
+  switchnameHandler=()=>{
+    alert("clicked");
+  }
+
+  
   render(){
+    
     return (
       <div className="App">
         <h1>React App</h1>
-        <p>this is really working!!!</p>
-        <Person name="rajat" age="21"/>
-        <Person name="lokesh" age="19">i'am the best</Person>
-        <Person name="sarvjeet" age="21"/>
+        <button onClick={this.state.switchnameHandler}>Switch Names!</button>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>and i'am the best</Person>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
       </div>
       
 
