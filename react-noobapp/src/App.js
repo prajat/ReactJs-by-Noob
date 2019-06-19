@@ -1,14 +1,27 @@
 import React from 'react';
-import './App.css';
+import {Component} from 'react';
+import './App.scss';
+import Person from './Person/Person';
 
-const App= ()=> {
-  return (
-    <div className="App">
-      <h1>hey rajat</h1>
-    </div>
+class App extends Component{
 
-    //React.createElement('div',null,'h1','hey rajat from new way')
-  );
+  render(){
+    return (
+      <div className="App">
+        <h1>hey rajat</h1>
+
+        <Person />
+      </div>
+      
+
+
+
+      
+  
+      //React.createElement('div',null,'h1','hey rajat from new way')
+    );
+  }
+  
 }
 
 export default App;
