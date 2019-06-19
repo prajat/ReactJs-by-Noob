@@ -11,20 +11,20 @@ class App extends Component{
     ]
   }
 
-  switchnameHandler=()=>{
-    alert("clicked");
+  switchnameHandler = ()=>{
+    window.alert("clicked");
+    console.log("hey from console");
   }
-
   
   render(){
     
     return (
       <div className="App">
         <h1>React App</h1>
-        <button onClick={this.state.switchnameHandler}>Switch Names!</button>
+        <button onClick={this.switchnameHandler}>Switch Names!</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>and i'am the best</Person>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>and i'am the best</Person>
+        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
       </div>
       
 
