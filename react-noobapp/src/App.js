@@ -8,9 +8,11 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        <h1>hey rajat</h1>
-
-        <Person />
+        <h1>React App</h1>
+        <p>this is really working!!!</p>
+        <Person name="rajat" age="21"/>
+        <Person name="lokesh" age="19">i'am the best</Person>
+        <Person name="sarvjeet" age="21"/>
       </div>
       
 
