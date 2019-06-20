@@ -23,6 +23,17 @@ class App extends Component{
 
     });
   }
+
+  changeNameHandler=(event)=>{
+    this.setState({
+      persons:[
+        {name:'rajat',age:'21'},
+        {name:event.target.value,age:'19'},
+        {name:'sarvjeet',age:'22'}
+      ]
+
+    });
+  }
   
   render(){
     
@@ -32,11 +43,13 @@ class App extends Component{
         <button onClick={this.switchnameHandler}>Switch Names!</button>
         <Person 
           name={this.state.persons[0].name} 
-          age={this.state.persons[0].age} />
+          age={this.state.persons[0].age}
+          changed={this.changeNameHandler} />
         <Person 
           name={this.state.persons[1].name} 
           age={this.state.persons[1].age}
-          click={this.switchnameHandler.bind(this,'erys')} >and i'am the best</Person>
+          click={this.switchnameHandler}
+          changed={this.changeNameHandler} >and i'am the best</Person>
         <Person 
           name={this.state.persons[2].name} 
           age={this.state.persons[2].age} />
@@ -48,6 +61,7 @@ class App extends Component{
       
   
       //React.createElement('div',null,'h1','hey rajat from new way')
+      // this.switchnameHandler.bind(this,'kite') for dynamic pass value to state change
     );
   }
   
