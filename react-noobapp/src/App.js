@@ -5,15 +5,14 @@ import Person from './Person/Person';
 class App extends Component{
   state={
     persons:[
-      {name:'dhruv',age:'22'},
-      {name:'shankar',age:'21'},
-      {name:'jaden',age:'20'}
+      {id:'1',name:'dhruv',age:'22'},
+      {id:'2',name:'shankar',age:'21'},
+      {id:'3',name:'jaden',age:'20'}
     ],
     showPersons:false
 
   }
   
-
   switchnameHandler = ()=>{
     // window.alert("clicked");
     // console.log("hey from console");
@@ -64,6 +63,7 @@ class App extends Component{
                   <Person 
                   name={person.name}
                   age={person.age}
+                  key={person.id}
                   click={()=>this.deletePersonHandler(index)}/>
                 )
               })}
