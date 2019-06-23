@@ -10,7 +10,9 @@ class App extends Component{
       {name:'jaden',age:'20'}
     ],
     showPersons:false
+
   }
+  
 
   switchnameHandler = ()=>{
     // window.alert("clicked");
@@ -42,6 +44,14 @@ class App extends Component{
     const showstatus=this.state.showPersons;
     this.setState({showPersons:!showstatus});
   }
+
+  deletePersonHandler=(personIndex)=>{
+    //const persons =this.state.persons.slice();   ES5 method for create a copy of array and object
+    //const persons=this.state.persons; this is wrong approach as in js arrays and objexct are refernces types so it will create a reference not a copy
+    const persons=[...this.state.persons];
+    persons.splice(personIndex,1); 
+    this.setState({persons:persons});
+  }
   
   render(){
 
@@ -49,11 +59,12 @@ class App extends Component{
     if(this.state.showPersons){
       persons=(
             <div>
-              {this.state.persons.map((person)=>{
+              {this.state.persons.map((person,index)=>{
                 return(
                   <Person 
                   name={person.name}
-                  age={person.age}/>
+                  age={person.age}
+                  click={()=>this.deletePersonHandler(index)}/>
                 )
               })}
             </div>
