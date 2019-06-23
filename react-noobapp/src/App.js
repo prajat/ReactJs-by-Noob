@@ -25,10 +25,12 @@ class App extends Component{
     });
   }
 
+  //use for change name when click on p of person card
+
   changeNameHandler=(event)=>{
     this.setState({
       persons:[
-        {name:'rajat',age:'21'},
+        {name:'rajat',age:'21'},                 
         {name:event.target.value,age:'19'},
         {name:'sarvjeet',age:'22'}
       ]
@@ -47,19 +49,13 @@ class App extends Component{
     if(this.state.showPersons){
       persons=(
             <div>
-
-              <Person 
-                name={this.state.persons[0].name} 
-                age={this.state.persons[0].age}/>
-              <Person 
-                name={this.state.persons[1].name} 
-                age={this.state.persons[1].age}
-                click={this.switchnameHandler}
-                changed={this.changeNameHandler} >and i'am the best</Person>
-              <Person 
-                name={this.state.persons[2].name} 
-                age={this.state.persons[2].age} />
-
+              {this.state.persons.map((person)=>{
+                return(
+                  <Person 
+                  name={person.name}
+                  age={person.age}/>
+                )
+              })}
             </div>
 
       );
