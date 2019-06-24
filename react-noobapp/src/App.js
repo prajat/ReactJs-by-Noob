@@ -26,17 +26,15 @@ class App extends Component{
     });
   }
 
-  //use for change name when click on p of person card
+  changeNameHandler=(event,id)=>{
 
-  changeNameHandler=(event)=>{
-    this.setState({
-      persons:[
-        {name:'rajat',age:'21'},                 
-        {name:event.target.value,age:'19'},
-        {name:'sarvjeet',age:'22'}
-      ]
-
+    //to find personindex we can use lodash findundex method refer in other project
+    const personIndex=this.state.persons.findIndex((p)=>{
+      return p.id===id;
     });
+    const persons=[...this.state.persons];   //can also be done by lodash clone deep method.
+    persons[personIndex].name=event.target.value;
+    this.setState({persons:persons});
   }
   
   togglePersonHandler=()=>{
@@ -64,7 +62,9 @@ class App extends Component{
                   name={person.name}
                   age={person.age}
                   key={person.id}
-                  click={()=>this.deletePersonHandler(index)}/>
+                  id={person.id}
+                  click={()=>this.deletePersonHandler(index)}
+                  change={this.changeNameHandler} />
                 )
               })}
             </div>
