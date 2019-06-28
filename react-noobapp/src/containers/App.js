@@ -4,15 +4,27 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component{
-  state={
-    persons:[
-      {id:'1',name:'dhruv',age:'22'},
-      {id:'2',name:'shankar',age:'21'},
-      {id:'3',name:'jaden',age:'20'}
-    ],
-    showPersons:false
-
+  constructor(props){
+    super(props);
+    console.log("[app.js] from constructor()",props);
+    this.state={
+      persons:[
+        {id:'1',name:'dhruv',age:'22'},
+        {id:'2',name:'shankar',age:'21'},
+        {id:'3',name:'jaden',age:'20'}
+      ],
+      showPersons:false
+  
+    };
   }
+  
+  componentWillMount(){
+    console.log("[app.js] from willmount()");
+  }
+  componentDidMount(){
+    console.log("[app.js] from didmount()")
+  }
+  
   
   switchnameHandler = ()=>{
     this.setState({
@@ -50,6 +62,8 @@ class App extends Component{
   }
   
   render(){
+
+    console.log("hello from render");
 
     let persons=null;
     if(this.state.showPersons){
