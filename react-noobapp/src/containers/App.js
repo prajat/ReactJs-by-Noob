@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.scss';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component{
   state={
@@ -14,8 +15,6 @@ class App extends Component{
   }
   
   switchnameHandler = ()=>{
-    // window.alert("clicked");
-    // console.log("hey from console");
     this.setState({
       persons:[
         {name:'rajat',age:'21'},
@@ -55,22 +54,21 @@ class App extends Component{
     let persons=null;
     if(this.state.showPersons){
       persons=(
-        <div>
+          
           <Persons 
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.changeNameHandler}/>
-        </div>
 
       );
     } 
     
     return (
       <div className="App">
-        <h1>React App</h1>
-        <button className="App__button" onClick={this.switchnameHandler}>Switch Names!</button>
-        <br />
-        <button className="App__button" onClick={this.togglePersonHandler}>Show Names!</button>
+        <Cockpit 
+        apptitle={this.props.title}
+        nameChange={this.switchnameHandler}
+        togglePerson={this.togglePersonHandler}/>
         {persons}
 
       </div>
