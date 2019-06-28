@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-class Person extends Component{
+import React,{PureComponent} from 'react';    
+class Person extends PureComponent{
 
     render(){
 
